@@ -1,5 +1,32 @@
-# PostgreSQL schema for NHGRI-EBI GWAS Catalog
+# gwascatalog-pg
 
+PostgreSQL schema for NHGRI-EBI GWAS Catalog
+
+
+## How to use
+
+Eg.
+
+```
+=> SELECT
+       snp_id, mapped_trait, broad_ancestral_category
+   FROM
+       gwascatalogassociations LEFT JOIN gwascatalogancestry USING (study_accession);
+
+  snp_id  |           mapped_trait           | broad_ancestral_category
+----------+----------------------------------+--------------------------
+   380390 | age-related macular degeneration | European
+  7702187 | Parkinson's disease              | Asian unspecified
+  7702187 | Parkinson's disease              | Other
+  7702187 | Parkinson's disease              | European
+  7702187 | Parkinson's disease              | Asian unspecified
+  7702187 | Parkinson's disease              | Other
+  7702187 | Parkinson's disease              | European
+ 10494366 | QT interval                      | European
+ 10494366 | QT interval                      | European
+  1480597 | Parkinson's disease              | European
+...
+```
 
 ## How to install
 
